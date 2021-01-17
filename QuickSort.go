@@ -21,17 +21,21 @@ func partition(numbers[]int, begin, end int) int{
 		if(numbers[j] <= pivot) {
 			i++
 
-			swaptemp := numbers[i]
-			numbers[i] = numbers[j]
-            numbers[j] = swaptemp
+			numbers = swapNumbers(numbers, i, j)
 		}
 	}
 
-	swapTemp := numbers[i+1]
-	numbers[i+1] = numbers[end]
-	numbers[end] = swapTemp
+	numbers = swapNumbers(numbers, i+1, end)
 
 	return i+1
+}
+
+func swapNumbers(numbers[]int, a, b int) []int{
+	swapTemp := numbers[a]
+	numbers[a] = numbers[b]
+	numbers[b] = swapTemp
+
+	return numbers
 }
 
 func main(){
