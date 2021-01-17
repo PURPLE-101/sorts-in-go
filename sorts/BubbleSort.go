@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func bubbleSort(numbers[]int) []int{
 
@@ -34,15 +38,47 @@ func secondBubbleSort(numbers[]int) []int{
 	return numbers
 }
 
+func generateRandomTableOf(size int) []int{
+	
+	var numbers = make([]int,size)
+	var max = 100
+	var min = 1
 
+	for i := 0; i < size; i++ {
+		numbers[i] = rand.Intn(max-min) + min
+	}
+
+	return numbers
+}
+
+func startAndTimeBubbleSort(optionNumber int)  {
+	var numbers = generateRandomTableOf(10000)
+
+	start := time.Now()
+	
+	validateAndExecuteOption(optionNumber, numbers)
+
+	elapsed := time.Since(start)
+
+	fmt.Println("Algorithm ", optionNumber, " took " , elapsed , " to complete.")
+}
+
+func validateAndExecuteOption(optionNumber int, numbers[] int) {
+	if(optionNumber == 1){
+		bubbleSort(numbers)
+	}else if(optionNumber == 2){
+		secondBubbleSort(numbers)
+	}else {
+		fmt.Println("Invalid choice")
+	}
+
+	return
+}
 
 func main(){
-	var numbers = []int {1, 3, 5, 7, 9, 2, 4, 6, 8, 10}
-	fmt.Println(bubbleSort(numbers))
+	startAndTimeBubbleSort(1)
 	
 	fmt.Println("----------------------")
 
-	numbers = []int {1, 3, 5, 7, 9, 2, 4, 6, 8, 10}
-	fmt.Println(secondBubbleSort(numbers))
-
+	startAndTimeBubbleSort(2)
 }
