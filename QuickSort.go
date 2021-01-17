@@ -20,7 +20,6 @@ func partition(numbers[]int, begin, end int) int{
 	for j := begin; j < end; j++ {
 		if(numbers[j] <= pivot) {
 			i++
-
 			numbers = swapNumbers(numbers, i, j)
 		}
 	}
