@@ -40,5 +40,4 @@ func main(){
 	fmt.Println(quickSort(numbers,0, arrayLength-1))
 	
 	fmt.Println("----------------------")
-
 }
