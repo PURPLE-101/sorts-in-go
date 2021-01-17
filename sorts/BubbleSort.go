@@ -56,14 +56,14 @@ func startAndTimeBubbleSort(optionNumber int)  {
 
 	start := time.Now()
 	
-	validateAndExecuteOption(optionNumber, numbers)
+	validateAndExecute(optionNumber, numbers)
 
 	elapsed := time.Since(start)
 
 	fmt.Println("Algorithm ", optionNumber, " took " , elapsed , " to complete.")
 }
 
-func validateAndExecuteOption(optionNumber int, numbers[] int) {
+func validateAndExecute(optionNumber int, numbers[] int) {
 	if(optionNumber == 1){
 		bubbleSort(numbers)
 	}else if(optionNumber == 2){
