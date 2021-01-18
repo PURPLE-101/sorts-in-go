@@ -31,6 +31,7 @@ func secondBubbleSort(numbers[]int) []int{
 		for i := 1; i < arrayLength-1; i++ {
 			if(numbers[i-1] > numbers[i]) {
 				numbers[i], numbers[i-1] = numbers[i-1], numbers[i]
+				swapped = true
 			}
 		}
 	}
